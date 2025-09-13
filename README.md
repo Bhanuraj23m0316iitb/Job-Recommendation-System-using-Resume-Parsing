@@ -1,38 +1,157 @@
-# Job-Recommendation-System-Using-Resume-Parsing
+# Job Recommendation System Using Resume Parsing
 
+A comprehensive machine learning-based web application that automates resume screening, categorizes resumes, and provides intelligent job recommendations using Natural Language Processing (NLP) techniques.
 
-# Introduction:
+## Features
 
-In the digital age, the recruitment process has undergone a significant transformation, thanks to advancements in machine learning and artificial intelligence. One such revolutionary application is in resume screening, where machine learning algorithms are utilized to automate and enhance the candidate selection process. In this post, we delve into an end-to-end project that leverages machine learning techniques to categorize resumes, provide job recommendations, and extract vital information seamlessly.
+- **Resume Parsing**: Extracts essential information from PDF and TXT resumes including:
+  - Contact details (phone, email)
+  - Skills and technologies
+  - Educational background
+  - Work experience
+- **Resume Categorization**: Automatically categorizes resumes using Random Forest classifier
+- **Job Recommendations**: Provides top 3 job recommendations using XGBoost algorithm
+- **Web Interface**: User-friendly Flask web application for easy resume upload and analysis
+- **Multi-format Support**: Supports both PDF and TXT file formats
 
-# The Challenge:
+## Technology Stack
 
-Traditional resume screening processes are often time-consuming and prone to human bias. Sorting through numerous resumes to identify suitable candidates for a job opening can be overwhelming for recruiters. Moreover, manually extracting relevant information from resumes, such as skills, education, and contact details, adds another layer of complexity to the process.
+- **Backend**: Python, Flask
+- **Machine Learning**: 
+  - scikit-learn (Random Forest Classifier)
+  - XGBoost (Job Recommendation)
+  - TF-IDF Vectorization
+- **PDF Processing**: PyPDF2
+- **Frontend**: HTML, CSS, JavaScript
+- **Data Processing**: NumPy, Pandas
+- **Visualization**: Matplotlib, Seaborn
 
-# The Solution:
+## Prerequisites
 
-Our project offers a comprehensive solution to streamline the resume screening process using machine learning. By harnessing the power of natural language processing (NLP) techniques and classification algorithms, we automate the categorization of resumes based on predefined criteria. Additionally, our system provides personalized job recommendations to match candidates with suitable job openings, optimizing the recruitment process.
+- Python 3.7 or higher
+- pip (Python package installer)
 
-# Key Features:
+## Installation & Setup
 
-1: Resume Parsing: Our system utilizes NLP techniques to extract essential information from resumes, including contact details, skills, education, and work experience. This automated parsing eliminates the need for manual data entry and ensures accuracy and efficiency.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/Job-Recommendation-System-using-Resume-Parsing.git
+   cd Job-Recommendation-System-using-Resume-Parsing
+   ```
 
-2: Categorization: Machine learning algorithms categorize resumes into predefined categories based on specific criteria set by recruiters or hiring managers. This categorization enables recruiters to quickly identify top candidates for further evaluation.
+2. **Create a virtual environment (recommended)**
+   ```bash
+   python -m venv resume_env
+   # On Windows
+   resume_env\Scripts\activate
+   # On macOS/Linux
+   source resume_env/bin/activate
+   ```
 
-3: Job Recommendations: Leveraging machine learning models, our system recommends relevant job openings to candidates based on their skills, experience, and preferences. This personalized approach enhances candidate engagement and increases the likelihood of successful matches.
+3. **Install required dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-4: Benefits:
+4. **Verify model files**
+   Ensure the following model files are present in the `Models/` directory:
+   - `rf_classifier_categorization.pkl`
+   - `tfidf_vectorizer_categorization.pkl`
+   - `xgb_classifier_job_recommendation.pkl`
+   - `tfidf_vectorizer_job_recommendation.pkl`
+   - `label_encoder_job_recommendation.pkl`
 
-Time-saving: Automating the resume screening process reduces the time and effort required for candidate selection, allowing recruiters to focus on more strategic tasks.
-Improved efficiency: By leveraging machine learning algorithms, our system ensures consistent and unbiased resume evaluation, leading to more informed hiring decisions.
-Enhanced candidate experience: Personalized job recommendations increase candidate satisfaction and engagement, resulting in higher retention rates and improved employer branding.
+## Running the Application
 
+1. **Start the Flask application**
+   ```bash
+   python app.py
+   ```
 
-5: Conclusion:
+2. **Access the web interface**
+   Open your web browser and navigate to:
+   ```
+   http://localhost:5000
+   ```
 
-Machine learning has revolutionized the way we approach resume screening, offering unparalleled efficiency, accuracy, and scalability. Our end-to-end project demonstrates the transformative potential of machine learning in the recruitment process, empowering organizations to make data-driven hiring decisions and unlock the full potential of their workforce.
+3. **Upload and analyze resumes**
+   - Click on "Choose File" to select a PDF or TXT resume
+   - Click "Predict" to process the resume
+   - View the results including category prediction, job recommendations, and extracted information
 
-Join us on this journey to reimagine the future of recruitment with machine learning. Together, we can revolutionize the way we identify, evaluate, and engage top talent, driving innovation and growth in the ever-evolving job market.
+## Project Structure
+
+```
+Job-Recommendation-System-using-Resume-Parsing/
+├── app.py                                    # Main Flask application
+├── requirements.txt                          # Python dependencies
+├── README.md                                # Project documentation
+├── .gitignore                               # Git ignore file
+├── Models/                                  # Pre-trained ML models
+│   ├── rf_classifier_categorization.pkl
+│   ├── tfidf_vectorizer_categorization.pkl
+│   ├── xgb_classifier_job_recommendation.pkl
+│   ├── tfidf_vectorizer_job_recommendation.pkl
+│   └── label_encoder_job_recommendation.pkl
+├── templates/                               # HTML templates
+│   └── index.html                          # Main web interface
+├── Sample data/                            # Sample resume files for testing
+│   ├── advocate.txt
+│   ├── banking.txt
+│   ├── designer.pdf
+│   ├── Healthcare.txt
+│   ├── info resume.pdf
+│   └── Teacher.pdf
+├── Resume Catogorization prediction.ipynb  # Model training notebook
+├── Resume Job Recommendation System.ipynb  # Job recommendation notebook
+└── Extracted Info and hiring process.ipynb # Information extraction notebook
+```
+
+## Testing the Application
+
+Use the sample resume files in the `Sample data/` directory to test the application:
+
+1. Upload any of the sample files (PDF or TXT format)
+2. Click "Predict" to see the analysis results
+3. Review the extracted information, category prediction, and job recommendations
+
+## How It Works
+
+1. **Resume Upload**: Users upload PDF or TXT resume files through the web interface
+2. **Text Extraction**: The system extracts text content from uploaded files
+3. **Text Preprocessing**: Cleans and preprocesses the extracted text
+4. **Information Extraction**: Uses regex patterns to extract:
+   - Contact information (phone, email)
+   - Skills from a predefined skill database
+   - Educational qualifications
+5. **Categorization**: Uses TF-IDF vectorization and Random Forest to categorize resumes
+6. **Job Recommendation**: Employs XGBoost classifier to recommend top 3 suitable job roles
+7. **Results Display**: Shows all extracted information and predictions on the web interface
+
+## Use Cases
+
+- **Recruitment Agencies**: Automate initial resume screening process
+- **HR Departments**: Quickly categorize and match candidates to job openings
+- **Job Seekers**: Get insights into resume content and suitable job recommendations
+- **Career Counselors**: Analyze candidate profiles for career guidance
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Create a Pull Request
+
+## License
+
+This project is available for educational and research purposes.
+
+## Acknowledgments
+
+- Machine learning models trained on resume datasets
+- Flask framework for web application development
+- scikit-learn and XGBoost for machine learning algorithms
 
 
 
