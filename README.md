@@ -63,6 +63,8 @@ A comprehensive machine learning-based web application that automates resume scr
 
 ## Running the Application
 
+### Option 1: Local Development
+
 1. **Start the Flask application**
    ```bash
    python app.py
@@ -74,7 +76,27 @@ A comprehensive machine learning-based web application that automates resume scr
    http://localhost:5000
    ```
 
-3. **Upload and analyze resumes**
+### Option 2: Using Docker
+
+1. **Build the Docker image**
+   ```bash
+   docker build -t job-recommendation-system .
+   ```
+
+2. **Run the Docker container**
+   ```bash
+   docker run -p 5000:5000 job-recommendation-system
+   ```
+
+3. **Access the web interface**
+   Open your web browser and navigate to:
+   ```
+   http://localhost:5000
+   ```
+
+### Using the Application
+
+1. **Upload and analyze resumes**
    - Click on "Choose File" to select a PDF or TXT resume
    - Click "Predict" to process the resume
    - View the results including category prediction, job recommendations, and extracted information
@@ -86,6 +108,8 @@ Job-Recommendation-System-using-Resume-Parsing/
 ├── app.py                                    # Main Flask application
 ├── requirements.txt                          # Python dependencies
 ├── README.md                                # Project documentation
+├── Dockerfile                               # Docker configuration
+├── .dockerignore                            # Docker ignore file
 ├── .gitignore                               # Git ignore file
 ├── Models/                                  # Pre-trained ML models
 │   ├── rf_classifier_categorization.pkl
