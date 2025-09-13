@@ -35,7 +35,7 @@ A comprehensive machine learning-based web application that automates resume scr
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/Job-Recommendation-System-using-Resume-Parsing.git
+   git clone https://github.com/Bhanuraj23m0316iitb/Job-Recommendation-System-using-Resume-Parsing.git
    cd Job-Recommendation-System-using-Resume-Parsing
    ```
 
